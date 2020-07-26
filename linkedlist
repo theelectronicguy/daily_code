@@ -1,0 +1,89 @@
+    
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+
+
+struct node{
+  int data;
+  struct node* link;
+};
+
+struct node* start=NULL;
+void traverse()
+    {
+        struct node* p;
+        p=start;
+        
+        if (start==NULL){
+        cout<<"list is empty\n";
+        return;
+            
+        }
+        else
+        {  
+            while(p->link!=NULL)
+            {
+            cout<<p->data<<"\t";
+            p=p->link;
+            }    
+                
+        }
+    }
+void insert(int dat)
+    {
+        struct node* temp,*t;
+        temp=(struct node*)malloc(sizeof(struct node));
+        
+        if(start==NULL)
+        {
+        temp->data=dat;
+        start=temp;
+        temp->link=NULL;
+        cout<<"into the if condition\t"<<temp->data;
+        }
+        else
+        {
+            t=start;
+            while(t->link!=NULL)
+            {
+                t=t->link;
+            }
+            t->link=temp;
+            temp->link=NULL;
+            cout<<"\ninto the else condition\n";
+        }
+        
+        
+        
+        
+    }
+    
+int main()
+{
+   
+    /*while(1)
+    {
+        cout<<"press \n1. for insertion\n 2.for deletion \n3.traversing \n4.exit the program";
+        int opt;
+        cin>>opt;
+        if(opt==1)
+        cout<<"hello";
+        
+    }
+    */
+    
+    //p->data=10;
+    
+    traverse();
+    insert(10);
+    traverse();
+    insert(20);
+    traverse();
+    insert(3);
+    traverse();
+    
+    
+    
+    return 0;
+}
